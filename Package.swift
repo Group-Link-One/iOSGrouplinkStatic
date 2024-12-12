@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,16 +6,13 @@ import PackageDescription
 let package = Package(
     name: "GroupLinkStaticPackage",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "GroupLinkStaticPackage",
-            targets: ["GroupLinkStaticPackage"]),
+            name: "GroupLinkStatic",
+            targets: ["GroupLinkStatic"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "GroupLinkStaticPackage"),
-
+        .binaryTarget(name: "GroupLinkStatic",
+                      url: "https://s3.us-west-004.backblazeb2.com/gl-ios-releases/StaticReleases/v5-3-9.zip",
+                      checksum: "3bd1b88cd4aa4cc5dba4021f66e2e791b15f37d9631257e491cf90a4511572d8")
     ]
 )
